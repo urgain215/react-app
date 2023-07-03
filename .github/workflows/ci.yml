@@ -18,7 +18,7 @@ jobs:
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
-            path: ~\AppData\npm-cache
+            path: C:\Users\KTZMN5A\AppData\Local\npm-cache
             key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
             restore-keys: |
               ${{ runner.os }}-node-
