@@ -15,14 +15,32 @@ jobs:
       #   uses: actions/setup-node@v1
       #   with:
       #       node-version: "14"
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+            path: C:\Users\KTZMN5A\AppData\Local\npm-cache
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node-
       - run: npm ci
       - run: npm run format
       - run: npm test -- --coverage
         env:
             CI: true 
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v3
+        with:
+            name: code-coverage
+            path: coverage
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
+      - name: Upload Build folder
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v3
+        with:
+              name: build
+              path: build
       - name: Deploy to Staging
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain urgain.surge.sh
