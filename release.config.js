@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
     branches: "master",
     repositoryUrl: "https://github.com/urgain215/react-app/",
     plugins: [
