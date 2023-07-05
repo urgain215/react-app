@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^1.1.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -18,6 +18,11 @@
     "eject": "react-scripts eject",
     "format:check": "prettier --check \"**/*.{js,jsx,yml,yaml,json,css,scss,html,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,yml,yaml,json,css,scss,html,md}\""
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -38,7 +43,16 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^17.6.6",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^4.3.8",
     "prettier": "2.8.8",
-    "semantic-release": "^21.0.6"
+    "semantic-release": "^9.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
