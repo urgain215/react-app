@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format:check": "prettier --check \"**/*.{js,jsx,yml,yaml,json,css,scss,html,md}\"",
     "format": "prettier --write \"**/*.{js,jsx,yml,yaml,json,css,scss,html,md}\""
@@ -38,10 +38,6 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^17.6.6",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^4.3.8",
     "prettier": "2.8.8",
     "semantic-release": "^9.0.0"
   }
